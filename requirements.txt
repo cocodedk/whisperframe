@@ -1,0 +1,6 @@
+# Install PyTorch first for better compatibility
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# Install Whisper from git for latest version
+git+https://github.com/openai/whisper.git
