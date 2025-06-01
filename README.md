@@ -1,16 +1,29 @@
-# Video Transcriber with Whisper
+# Video Processing Tools
 
-A Python script that extracts audio from video files and transcribes them using OpenAI's Whisper AI model.
+A collection of Python scripts for video processing: transcription using OpenAI's Whisper and frame extraction using FFmpeg.
 
 ## ✨ Features
 
+### 🎤 Video Transcriber (`video_transcriber.py`)
 - **Audio Extraction**: Automatically extracts audio from video files using FFmpeg
 - **AI Transcription**: Uses OpenAI's Whisper for accurate speech-to-text conversion
 - **Multiple Output Formats**: Generates `.txt`, `.vtt`, `.srt`, and `.json` files
 - **Language Support**: Auto-detection or manual language specification
 - **Model Selection**: Choose from different Whisper model sizes
 - **Subtitle Generation**: Creates subtitle files with timestamps
+
+### 📸 Frame Extractor (`video_frame_extractor.py`)
+- **Configurable Frame Rate**: Extract 1 frame per second (default) or any custom rate
+- **Multiple Image Formats**: Output as JPG, PNG, BMP, TIFF, or WebP
+- **Quality Control**: Adjustable image quality settings
+- **Smart Output**: Organized frame directories with custom naming
+- **Contact Sheets**: Optional creation of contact sheet/montage
+- **Video Analysis**: Shows duration, resolution, and estimated frame count
+
+### 🎨 Common Features
 - **Clean Interface**: Beautiful command-line interface with progress indicators
+- **Error Handling**: Comprehensive validation and helpful error messages
+- **Cross-platform**: Works on Linux, macOS, and Windows
 
 ## 🔧 Prerequisites
 
@@ -73,8 +86,9 @@ env/bin/python video_transcriber.py your_video.mp4
 
 **Usage examples:**
 
+### 🎤 Video Transcription
 ```bash
-# Basic usage
+# Basic transcription
 python video_transcriber.py your_video.mp4
 
 # Specify language and model
@@ -83,32 +97,75 @@ python video_transcriber.py video.mp4 --language Persian --model medium
 # Custom output directory
 python video_transcriber.py video.mp4 --output-dir ./transcripts
 
-# Keep extracted audio file
-python video_transcriber.py video.mp4 --keep-audio
+# Delete audio after transcription (audio kept by default)
+python video_transcriber.py video.mp4 --delete-audio
+```
+
+### 📸 Frame Extraction
+```bash
+# Basic extraction (1 frame per second)
+python video_frame_extractor.py your_video.mp4
+
+# Extract 2 frames per second in PNG format
+python video_frame_extractor.py video.mp4 --fps 2 --format png
+
+# Extract every 2 seconds (0.5 fps) with contact sheet
+python video_frame_extractor.py video.mp4 --fps 0.5 --contact-sheet
+
+# High quality extraction with custom prefix
+python video_frame_extractor.py video.mp4 --fps 1 --quality 1 --prefix scene
 ```
 
 ## 📖 Usage Examples
 
-### Basic Transcription
+### 🎤 Transcription Examples
+
+#### Basic Transcription
 ```bash
 python video_transcriber.py lecture.mp4
 ```
 
-### Persian/Farsi Content
+#### Persian/Farsi Content
 ```bash
 python video_transcriber.py persian_video.mp4 --language Persian --model small
 ```
 
-### High-Quality Transcription
+#### High-Quality Transcription
 ```bash
 python video_transcriber.py interview.mp4 --model large --output-dir ./results
 ```
 
-### Batch Processing
+### 📸 Frame Extraction Examples
+
+#### Time-lapse Frames
 ```bash
-# Process multiple files
+# Extract 1 frame every 10 seconds
+python video_frame_extractor.py timelapse.mp4 --fps 0.1
+```
+
+#### Scene Analysis
+```bash
+# Extract 4 frames per second for detailed analysis
+python video_frame_extractor.py movie.mp4 --fps 4 --format png --contact-sheet
+```
+
+#### Thumbnail Generation
+```bash
+# Extract key frames with custom naming
+python video_frame_extractor.py presentation.mp4 --fps 0.5 --prefix thumbnail --quality 1
+# Output: output/presentation_frames/presentation_thumbnail_0001.jpg, etc.
+```
+
+### 🔄 Batch Processing
+```bash
+# Process multiple files for transcription
 for video in *.mp4; do
     python video_transcriber.py "$video" --language auto --model medium
+done
+
+# Extract frames from multiple videos
+for video in *.mp4; do
+    python video_frame_extractor.py "$video" --fps 1 --contact-sheet
 done
 ```
 
