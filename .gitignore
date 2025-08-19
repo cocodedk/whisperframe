@@ -155,18 +155,91 @@ cython_debug/
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be added to the global gitignore or merged into this project gitignore.  For a PyCharm
-#  project, it is generally recommended to ignore the files corresponding to the specific
-#  project. The files in the directory are typically:
-.idea/
+#  project, it is recommended to include the following files:
+#  .idea/
+#  *.iml
+#  *.ipr
+#  *.iws
 
-# VS Code
+# Video processing specific
+output/
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.flv
+*.m4v
+*.3gp
+*.ogv
+*.wmv
+*.asf
+*.f4v
+*.f4p
+*.f4a
+*.f4b
+
+# Audio files
+*.aac
+*.ogg
+*.wma
+*.flac
+*.alac
+*.aiff
+*.au
+*.ra
+*.ram
+*.ac3
+*.dts
+*.opus
+
+# Image files (frames)
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.tif
+*.webp
+*.gif
+*.ico
+*.svg
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Model files (Whisper models are downloaded automatically)
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Configuration files with sensitive data
+config.ini
+secrets.json
+.env.local
+.env.production
+
+# IDE and editor files
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-
-# macOS
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -174,78 +247,3 @@ cython_debug/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Windows
-*.lnk
-Desktop.ini
-
-# Linux
-*~
-
-# Video files (test inputs - uncomment if you don't want to track them)
-# *.mp4
-# *.avi
-# *.mkv
-# *.mov
-# *.wmv
-# *.flv
-# *.webm
-# *.m4v
-
-# Audio files (extracted audio - usually temporary)
-*_audio.wav
-*_audio.mp3
-
-# Transcription output files (uncomment if you don't want to track outputs)
-# *.txt
-# *.vtt
-# *.srt
-# *.json
-
-# Whisper model cache (models are downloaded to ~/.cache/whisper by default)
-.cache/
-~/.cache/whisper/
-
-# Temporary files
-*.tmp
-*.temp
-temp/
-tmp/
-
-# Logs
-*.log
-logs/
-
-# FFmpeg temporary files
-ffmpeg2pass-*.log
-
-# Custom project specific
-test_videos/
-output/
-outputs/
-transcripts/
-results/
-generated/
-
-# Output folder contents (comprehensive coverage)
-output/**
-outputs/**
-*/output/
-*/outputs/
-
-# Backup files
-*.bak
-*.backup
-*~
-
-# Editor swap files
-*.swp
-*.swo
-*~
-
-# Python virtual environment activation scripts (keep the custom ones we created)
-# But ignore the standard ones
-env/bin/activate
-env/bin/activate.csh
-env/bin/activate.fish
-env/bin/activate.ps1

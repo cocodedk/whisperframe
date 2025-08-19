@@ -1,48 +1,47 @@
-# Video Processing Tools
+# 🎬 WhisperFrame - AI-Powered Video Processing Toolkit
 
-A collection of Python scripts for video processing: transcription using OpenAI's Whisper and frame extraction using FFmpeg.
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![FFmpeg](https://img.shields.io/badge/FFmpeg-Required-orange.svg)](https://ffmpeg.org/)
+
+> **WhisperFrame** is a comprehensive Python toolkit that combines OpenAI's Whisper AI transcription with advanced video frame extraction capabilities. Perfect for content creators, researchers, and developers who need to process video content for analysis, transcription, or archival purposes.
 
 ## ✨ Features
 
-### 🎤 Video Transcriber (`video_transcriber.py`)
-- **Audio Extraction**: Automatically extracts audio from video files using FFmpeg
-- **AI Transcription**: Uses OpenAI's Whisper for accurate speech-to-text conversion
-- **Multiple Output Formats**: Generates `.txt`, `.vtt`, `.srt`, and `.json` files
-- **Language Support**: Auto-detection or manual language specification
-- **Model Selection**: Choose from different Whisper model sizes
-- **Subtitle Generation**: Creates subtitle files with timestamps
+### 🎤 **AI Video Transcription** (`video_transcriber.py`)
+- **🎵 Audio Extraction**: Automatically extracts audio from video files using FFmpeg
+- **🤖 AI Transcription**: Uses OpenAI's Whisper for accurate speech-to-text conversion
+- **📝 Multiple Output Formats**: Generates `.txt`, `.vtt`, `.srt`, and `.json` files
+- **🌍 Language Support**: Auto-detection or manual language specification (99+ languages)
+- **⚡ Model Selection**: Choose from different Whisper model sizes (tiny to large)
+- **🎬 Subtitle Generation**: Creates subtitle files with precise timestamps
 
-### 📸 Frame Extractor (`video_frame_extractor.py`)
-- **Configurable Frame Rate**: Extract 1 frame per second (default) or any custom rate
-- **Multiple Image Formats**: Output as JPG, PNG, BMP, TIFF, or WebP
-- **Quality Control**: Adjustable image quality settings
-- **Smart Output**: Organized frame directories with custom naming
-- **Contact Sheets**: Optional creation of contact sheet/montage
-- **Video Analysis**: Shows duration, resolution, and estimated frame count
+### 📸 **Smart Frame Extraction** (`video_frame_extractor.py`)
+- **⚙️ Configurable Frame Rate**: Extract 1 frame per second (default) or any custom rate
+- **🖼️ Multiple Image Formats**: Output as JPG, PNG, BMP, TIFF, or WebP
+- **🎯 Quality Control**: Adjustable image quality settings
+- **📁 Smart Output**: Organized frame directories with custom naming
+- **🖼️ Contact Sheets**: Optional creation of contact sheet/montage
+- **📊 Video Analysis**: Shows duration, resolution, and estimated frame count
 
-### 🎨 Common Features
-- **Clean Interface**: Beautiful command-line interface with progress indicators
-- **Error Handling**: Comprehensive validation and helpful error messages
-- **Cross-platform**: Works on Linux, macOS, and Windows
-
-## 🔧 Prerequisites
-
-- **Python 3.8+**
-- **FFmpeg** (for audio extraction)
-- **Sufficient disk space** for model downloads (models range from ~40MB to ~3GB)
+### 🎨 **Common Features**
+- **✨ Clean Interface**: Beautiful command-line interface with progress indicators
+- **🛡️ Error Handling**: Comprehensive validation and helpful error messages
+- **🔄 Cross-platform**: Works on Linux, macOS, and Windows
+- **🚀 Performance Optimized**: Efficient processing with minimal memory usage
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
+### 1. **Install Dependencies**
 
-**Recommended method (handles virtual environments automatically):**
+**🚀 Recommended method (handles virtual environments automatically):**
 
 ```bash
 chmod +x install_manually.sh
 ./install_manually.sh
 ```
 
-**Alternative method:**
+**🔧 Alternative method:**
 
 ```bash
 # Make setup script executable and run it
@@ -50,7 +49,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-**Manual installation:**
+**📦 Manual installation:**
 
 ```bash
 # Install FFmpeg (Ubuntu/Debian)
@@ -69,7 +68,7 @@ source activate_env.fish
 pip install -r requirements.txt
 ```
 
-### 2. Run Transcription
+### 2. **Run Transcription**
 
 **If using virtual environment, activate it first:**
 
@@ -84,41 +83,9 @@ source activate_env.fish
 env/bin/python video_transcriber.py your_video.mp4
 ```
 
-**Usage examples:**
-
-### 🎤 Video Transcription
-```bash
-# Basic transcription
-python video_transcriber.py your_video.mp4
-
-# Specify language and model
-python video_transcriber.py video.mp4 --language Persian --model medium
-
-# Custom output directory
-python video_transcriber.py video.mp4 --output-dir ./transcripts
-
-# Delete audio after transcription (audio kept by default)
-python video_transcriber.py video.mp4 --delete-audio
-```
-
-### 📸 Frame Extraction
-```bash
-# Basic extraction (1 frame per second)
-python video_frame_extractor.py your_video.mp4
-
-# Extract 2 frames per second in PNG format
-python video_frame_extractor.py video.mp4 --fps 2 --format png
-
-# Extract every 2 seconds (0.5 fps) with contact sheet
-python video_frame_extractor.py video.mp4 --fps 0.5 --contact-sheet
-
-# High quality extraction with custom prefix
-python video_frame_extractor.py video.mp4 --fps 1 --quality 1 --prefix scene
-```
-
 ## 📖 Usage Examples
 
-### 🎤 Transcription Examples
+### 🎤 **Video Transcription Examples**
 
 #### Basic Transcription
 ```bash
@@ -135,7 +102,7 @@ python video_transcriber.py persian_video.mp4 --language Persian --model small
 python video_transcriber.py interview.mp4 --model large --output-dir ./results
 ```
 
-### 📸 Frame Extraction Examples
+### 📸 **Frame Extraction Examples**
 
 #### Time-lapse Frames
 ```bash
@@ -156,7 +123,7 @@ python video_frame_extractor.py presentation.mp4 --fps 0.5 --prefix thumbnail --
 # Output: output/presentation_frames/presentation_thumbnail_0001.jpg, etc.
 ```
 
-### 🔄 Batch Processing
+### 🔄 **Batch Processing**
 ```bash
 # Process multiple files for transcription
 for video in *.mp4; do
@@ -171,12 +138,26 @@ done
 
 ## ⚙️ Command Line Options
 
+### Video Transcriber Options
+
 | Option | Short | Description | Default |
 |--------|-------|-------------|---------|
 | `--language` | `-l` | Language code or 'auto' for detection | `auto` |
 | `--model` | `-m` | Whisper model size | `small` |
 | `--output-dir` | `-o` | Output directory | Same as video |
-| `--keep-audio` | `-k` | Keep extracted audio file | `false` |
+| `--keep-audio` | `-k` | Keep extracted audio file | `true` |
+| `--delete-audio` | | Delete audio after transcription | `false` |
+
+### Frame Extractor Options
+
+| Option | Short | Description | Default |
+|--------|-------|-------------|---------|
+| `--fps` | `-f` | Frames per second to extract | `1.0` |
+| `--format` | | Output image format | `jpg` |
+| `--quality` | `-q` | Image quality (1-31, lower=better) | `2` |
+| `--prefix` | `-p` | Frame filename prefix | `frame` |
+| `--contact-sheet` | | Generate contact sheet | `false` |
+| `--output-dir` | `-o` | Output directory | `output/video_frames` |
 
 ### Model Sizes
 
@@ -188,26 +169,31 @@ done
 | `medium` | ~1.5GB | Medium | Slower  | High     |
 | `large`  | ~3GB   | High   | Slowest | Best     |
 
-## 📁 Output Files
+## 📁 Output Structure
 
-The script generates multiple output formats:
+The toolkit generates organized output files:
 
 ```
-video_name.txt       # Plain text transcription
-video_name.vtt       # WebVTT subtitles
-video_name.srt       # SubRip subtitles
-video_name.json      # Detailed JSON with timestamps
-video_name_audio.wav # Extracted audio (if --keep-audio)
+output/
+├── video_name.txt          # Plain text transcription
+├── video_name.vtt          # WebVTT subtitles
+├── video_name.srt          # SubRip subtitles
+├── video_name.json         # Detailed JSON with timestamps
+├── video_name_audio.wav    # Extracted audio (if kept)
+└── video_name_frames/      # Extracted frames directory
+    ├── frame_0001.jpg
+    ├── frame_0002.jpg
+    └── ...
 ```
 
 ## 🌍 Supported Languages
 
 Whisper supports 99+ languages including:
-- English, Spanish, French, German, Italian
-- Persian/Farsi, Arabic, Hebrew
-- Chinese, Japanese, Korean
-- Russian, Portuguese, Dutch
-- And many more...
+- **European**: English, Spanish, French, German, Italian, Dutch, Portuguese
+- **Middle Eastern**: Persian/Farsi, Arabic, Hebrew, Turkish
+- **Asian**: Chinese, Japanese, Korean, Hindi, Thai, Vietnamese
+- **Slavic**: Russian, Polish, Czech, Ukrainian
+- **And many more...**
 
 Use `--language auto` for automatic detection or specify like `--language Persian`.
 
@@ -242,21 +228,57 @@ Make sure you have write permissions in the output directory.
 
 ## 📊 Performance Tips
 
-1. **Model Selection**: Use `small` for balanced speed/accuracy
-2. **GPU Support**: Install CUDA-enabled PyTorch for faster processing
-3. **Audio Quality**: Higher quality audio = better transcription
-4. **File Size**: Large files may take significant time and memory
+1. **🎯 Model Selection**: Use `small` for balanced speed/accuracy
+2. **🚀 GPU Support**: Install CUDA-enabled PyTorch for faster processing
+3. **🎵 Audio Quality**: Higher quality audio = better transcription
+4. **💾 File Size**: Large files may take significant time and memory
+5. **🔄 Batch Processing**: Process multiple files sequentially for efficiency
 
 ## 🤝 Contributing
 
-Feel free to submit issues, fork the repository, and create pull requests for any improvements.
+We welcome contributions! Here's how you can help:
+
+1. **🐛 Report Bugs**: Open an issue with detailed bug reports
+2. **💡 Suggest Features**: Share your ideas for improvements
+3. **🔧 Submit PRs**: Fork the repository and submit pull requests
+4. **📚 Improve Docs**: Help enhance documentation and examples
+
+### Development Setup
+```bash
+# Fork and clone the repository
+git clone https://github.com/yourusername/whisperframe.git
+cd whisperframe
+
+# Create virtual environment
+python3 -m venv env
+source env/bin/activate  # or source activate_env.fish
+
+# Install development dependencies
+pip install -r requirements.txt
+
+# Make your changes and test
+python video_transcriber.py --help
+python video_frame_extractor.py --help
+```
 
 ## 📄 License
 
-This project is open source. Whisper is released under MIT license by OpenAI.
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+
+**Copyright 2024 [COCODE.DK](https://cocode.dk)**
 
 ## 🙏 Acknowledgments
 
-- [OpenAI Whisper](https://github.com/openai/whisper) for the amazing AI transcription
-- [FFmpeg](https://ffmpeg.org/) for audio/video processing
-- The open-source community for inspiration and tools
+- **[OpenAI Whisper](https://github.com/openai/whisper)** for the amazing AI transcription technology
+- **[FFmpeg](https://ffmpeg.org/)** for robust audio/video processing capabilities
+- **The open-source community** for inspiration, tools, and continuous support
+
+## 🌟 Star History
+
+If you find this project useful, please consider giving it a ⭐️ on GitHub!
+
+---
+
+**Made with ❤️ by [COCODE.DK](https://cocode.dk)**
+
+*Empowering developers with AI-powered video processing tools*
