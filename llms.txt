@@ -1,0 +1,29 @@
+# WhisperFrame
+
+> AI-powered video processing toolkit with OpenAI Whisper transcription and intelligent frame extraction.
+
+## Overview
+
+WhisperFrame uses OpenAI Whisper to transcribe spoken content from videos and extracts video frames at meaningful moments, enabling automated video analysis and content creation workflows.
+
+## Links
+
+- GitHub: https://github.com/cocodedk/whisperframe
+- Website (EN): https://cocodedk.github.io/whisperframe/
+- Website (FA): https://cocodedk.github.io/whisperframe/fa/
+- Download: https://github.com/cocodedk/whisperframe/releases/latest/download/whisperframe.zip
+- Author: https://cocode.dk
+- LinkedIn: https://linkedin.com/in/babakbandpey
+
+## Technical Details
+
+- Language: Python 3.12
+- AI: OpenAI Whisper
+- Dependencies: See requirements.txt
+- License: Apache-2.0
+
+## Key Files
+
+- `video_transcriber.py` — Whisper-based transcription
+- `video_frame_extractor.py` — Frame extraction logic
+- `CLAUDE.md` — AI session instructions

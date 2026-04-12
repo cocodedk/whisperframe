@@ -1,10 +1,15 @@
-# 🎬 WhisperFrame - AI-Powered Video Processing Toolkit
+# WhisperFrame — AI-Powered Video Processing Toolkit
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![FFmpeg](https://img.shields.io/badge/FFmpeg-Required-orange.svg)](https://ffmpeg.org/)
+> WhisperFrame is a comprehensive Python toolkit that combines OpenAI's Whisper AI transcription with advanced video frame extraction capabilities.
 
-> **WhisperFrame** is a comprehensive Python toolkit that combines OpenAI's Whisper AI transcription with advanced video frame extraction capabilities. Perfect for content creators, researchers, and developers who need to process video content for analysis, transcription, or archival purposes.
+## Website
+
+- [English](https://cocodedk.github.io/whisperframe/)
+- [فارسی (Persian)](https://cocodedk.github.io/whisperframe/fa/)
+
+## Download
+
+[**Download WhisperFrame**](https://github.com/cocodedk/whisperframe/releases/latest/download/whisperframe.zip)
 
 ## ✨ Features
 
@@ -261,24 +266,10 @@ python video_transcriber.py --help
 python video_frame_extractor.py --help
 ```
 
-## 📄 License
+## Author
 
-This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+**Babak Bandpey** — [cocode.dk](https://cocode.dk) | [LinkedIn](https://linkedin.com/in/babakbandpey) | [GitHub](https://github.com/cocodedk)
 
-**Copyright 2024 [COCODE.DK](https://cocode.dk)**
+## License
 
-## 🙏 Acknowledgments
-
-- **[OpenAI Whisper](https://github.com/openai/whisper)** for the amazing AI transcription technology
-- **[FFmpeg](https://ffmpeg.org/)** for robust audio/video processing capabilities
-- **The open-source community** for inspiration, tools, and continuous support
-
-## 🌟 Star History
-
-If you find this project useful, please consider giving it a ⭐️ on GitHub!
-
----
-
-**Made with ❤️ by [COCODE.DK](https://cocode.dk)**
-
-*Empowering developers with AI-powered video processing tools*
+Apache-2.0 | © 2026 [Cocode](https://cocode.dk) | Created by [Babak Bandpey](https://linkedin.com/in/babakbandpey)
