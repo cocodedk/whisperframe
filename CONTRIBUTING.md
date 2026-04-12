@@ -1,8 +1,33 @@
-# 🤝 Contributing to WhisperFrame
+# Contributing to WhisperFrame
 
-Thank you for your interest in contributing to WhisperFrame! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to WhisperFrame!
 
-## 🚀 Quick Start
+## Install Git Hooks
+
+```bash
+./scripts/install-hooks.sh
+```
+
+## Local Git Setup
+
+```bash
+git config pull.rebase true
+git config core.autocrlf input
+git config push.autoSetupRemote true
+git config init.defaultBranch main
+```
+
+## Branch Naming
+
+| Prefix | Use |
+|---|---|
+| `feature/` | New features |
+| `fix/` | Bug fixes |
+| `chore/` | Maintenance |
+| `docs/` | Documentation |
+| `ci/` | CI/CD changes |
+
+## Quick Start
 
 1. **Fork** the repository
 2. **Clone** your fork locally
