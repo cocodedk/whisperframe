@@ -6,6 +6,7 @@
 
 - [English](https://cocodedk.github.io/whisperframe/)
 - [فارسی (Persian)](https://cocodedk.github.io/whisperframe/fa/)
+- [Dansk (Danish)](https://cocodedk.github.io/whisperframe/da/)
 
 ## Download
 

@@ -13,10 +13,8 @@ Example:
 """
 
 import argparse
-import os
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 from typing import Optional
 
@@ -78,7 +76,7 @@ class VideoTranscriber:
 
         try:
             # Run ffmpeg with minimal output
-            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            subprocess.run(cmd, capture_output=True, text=True, check=True)
             print(f"✅ Audio extracted to: {self.audio_path}")
             return str(self.audio_path)
 
@@ -94,7 +92,7 @@ class VideoTranscriber:
             # Load Whisper model
             model = whisper.load_model(self.model)
 
-            print(f"🔄 Transcribing audio...")
+            print("🔄 Transcribing audio...")
 
             # Transcribe with language detection or specified language
             if self.language.lower() == "auto":

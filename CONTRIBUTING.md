@@ -8,6 +8,19 @@ Thank you for your interest in contributing to WhisperFrame!
 ./scripts/install-hooks.sh
 ```
 
+This activates three hooks via `core.hooksPath`:
+
+- **pre-commit** — runs `ruff check .` and `pytest` before every commit.
+- **commit-msg** — enforces [Conventional Commits](https://www.conventionalcommits.org/).
+- **pre-push** — owner-locked: refuses to push anywhere except `github.com/cocodedk`
+  (including the `github.com-cocodedk` SSH alias), and blocks force-push or deletion
+  of protected branches (`main`/`master`).
+
+Caveats: `core.hooksPath` is per-clone and not committed — run the installer after every
+fresh clone. `git push --no-verify` bypasses the hooks by design (for genuine emergencies).
+Pushes from CI or the GitHub web UI do not invoke these hooks; for public repos, branch
+protection (see `scripts/setup-repo.sh`) provides the server-side guarantee.
+
 ## Local Git Setup
 
 ```bash

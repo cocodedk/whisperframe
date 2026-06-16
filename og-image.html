@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --bg:#09090f; --surface:#111118; --border:#1e1e2e; --accent:#f59e0b; --text:#e2e8f0; --muted:#94a3b8; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: radial-gradient(1100px 500px at 80% -10%, #1a1606 0%, var(--bg) 55%);
+    color: var(--text); font-family: 'Inter', sans-serif;
+    display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center;
+    padding: 72px; position: relative; overflow: hidden;
+  }
+  .left { display: flex; flex-direction: column; gap: 26px; }
+  .badge { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+    padding: 8px 16px; font-size: 18px; color: var(--muted); font-weight: 600; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: 78px; font-weight: 800; letter-spacing: -2px; color: var(--accent); line-height: 1; }
+  p.tag { font-size: 27px; color: var(--text); font-weight: 600; line-height: 1.35; max-width: 560px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+  .chip { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 9px 15px; font-size: 18px; color: var(--muted); font-weight: 600; }
+  .chip b { color: var(--text); }
+  .foot { font-family: 'JetBrains Mono', monospace; font-size: 17px; color: var(--muted); margin-top: 12px; }
+  .foot b { color: var(--accent); }
+  /* right: stylized subtitle/waveform motif */
+  .viz { position: relative; height: 360px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+  .wave { display: flex; align-items: flex-end; gap: 7px; height: 130px; }
+  .wave span { width: 12px; border-radius: 6px; background: linear-gradient(180deg, var(--accent), #d97706); }
+  .cap { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+    border-radius: 10px; padding: 14px 18px; font-size: 20px; color: var(--text); box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+  .cap .t { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent); display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <span class="badge"><span class="dot"></span>Open source · Python 3.12</span>
+    <h1>WhisperFrame</h1>
+    <p class="tag">AI video transcription with OpenAI Whisper &amp; intelligent frame extraction.</p>
+    <div class="chips">
+      <span class="chip"><b>SRT</b> · VTT · TXT · JSON</span>
+      <span class="chip"><b>99+</b> languages</span>
+      <span class="chip"><b>FFmpeg</b> frames</span>
+    </div>
+    <span class="foot">Built by <b>Babak Bandpey</b> · cocode.dk · linkedin.com/in/babakbandpey</span>
+  </div>
+  <div class="viz">
+    <div class="wave" id="wave"></div>
+    <div class="cap"><span class="t">00:00:05,300 → 00:00:07,500</span>Speech, transcribed &amp; subtitled.</div>
+  </div>
+  <script>
+    const heights = [30,55,90,120,70,100,45,85,130,60,95,40,75,110,50,80,125,65,35,100,55,90];
+    const w = document.getElementById('wave');
+    heights.forEach(h => { const s = document.createElement('span'); s.style.height = h + 'px'; s.style.opacity = 0.55 + h/300; w.appendChild(s); });
+  </script>
+</body>
+</html>

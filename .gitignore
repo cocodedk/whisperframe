@@ -207,6 +207,10 @@ output/
 *.ico
 *.svg
 
+# Website assets must ship to GitHub Pages — keep these despite the rules above
+!website/favicon.svg
+!website/og.png
+
 # Temporary files
 *.tmp
 *.temp

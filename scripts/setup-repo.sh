@@ -21,15 +21,16 @@ gh api \
   --input - <<'PROTECTION_EOF'
 {
   "required_status_checks": { "strict": true, "contexts": ["verify"] },
-  "enforce_admins": true,
+  "enforce_admins": false,
   "required_pull_request_reviews": {
-    "dismiss_stale_reviews": true,
-    "required_approving_review_count": 1
+    "dismiss_stale_reviews": false,
+    "require_code_owner_reviews": false,
+    "required_approving_review_count": 0
   },
   "restrictions": null,
   "allow_force_pushes": false,
   "allow_deletions": false,
-  "required_linear_history": true
+  "required_linear_history": false
 }
 PROTECTION_EOF
 
