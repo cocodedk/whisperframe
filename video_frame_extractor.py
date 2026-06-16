@@ -13,7 +13,6 @@ Example:
 """
 
 import argparse
-import os
 import subprocess
 import sys
 import math
@@ -159,7 +158,7 @@ class VideoFrameExtractor:
         try:
             print("🔄 Extracting frames...")
             # Run ffmpeg with progress
-            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            subprocess.run(cmd, capture_output=True, text=True, check=True)
 
             # Count extracted frames
             video_name = self.video_path.stem
