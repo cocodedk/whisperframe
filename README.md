@@ -12,19 +12,6 @@
 
 [**Download WhisperFrame**](https://github.com/cocodedk/whisperframe/releases/latest/download/whisperframe.zip)
 
-## Docker
-
-A prebuilt image ships FFmpeg + Whisper so you don't install anything locally:
-
-```bash
-docker pull ghcr.io/cocodedk/whisperframe:latest
-
-# Transcribe a clip in the current directory (mounted at /data)
-docker run --rm -v "$PWD:/data" ghcr.io/cocodedk/whisperframe:latest clip.mp4 --language Persian
-```
-
-Images are published to GHCR on each `v*` release tag.
-
 ## ✨ Features
 
 ### 🎤 **AI Video Transcription** (`video_transcriber.py`)
