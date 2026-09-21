@@ -9,8 +9,8 @@ WhisperFrame uses OpenAI Whisper to transcribe spoken content from videos and ex
 ## Links
 
 - GitHub: https://github.com/cocodedk/whisperframe
-- Website (EN): https://cocodedk.github.io/whisperframe/
-- Website (FA): https://cocodedk.github.io/whisperframe/fa/
+- Website (EN): https://whisperframe.cocode.dk/
+- Website (FA): https://whisperframe.cocode.dk/fa/
 - Download: https://github.com/cocodedk/whisperframe/releases/latest/download/whisperframe.zip
 - Author: https://cocode.dk
 - LinkedIn: https://linkedin.com/in/babakbandpey
