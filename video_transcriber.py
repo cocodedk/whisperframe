@@ -107,8 +107,8 @@ class VideoTranscriber:
             print("✅ Transcription completed!")
             return result
 
-        except Exception as e:  # noqa: BLE001 -- whisper/torch's failure surface isn't a fixed set; normalize to RuntimeError
-            raise RuntimeError(f"Failed to transcribe audio: {e}")
+        except Exception as e:
+            raise RuntimeError(f"Failed to transcribe audio: {e}") from e
 
     def save_results(self, result: dict) -> dict:
         """Save transcription results in multiple formats."""
