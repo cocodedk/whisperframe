@@ -12,11 +12,12 @@ Example:
     python video_transcriber.py video.mp4 --language Persian --model small
 """
 
+from __future__ import annotations
+
 import argparse
 import subprocess
 import sys
 from pathlib import Path
-from typing import Optional
 
 try:
     import whisper
@@ -30,7 +31,7 @@ class VideoTranscriber:
     """Main class for video transcription workflow."""
 
     def __init__(self, video_path: str, language: str = "auto", model: str = "small",
-                 output_dir: Optional[str] = None, keep_audio: bool = True):
+                 output_dir: str | None = None, keep_audio: bool = True):
         self.video_path = Path(video_path)
         self.language = language
         self.model = model
@@ -107,7 +108,7 @@ class VideoTranscriber:
             return result
 
         except Exception as e:
-            raise RuntimeError(f"Failed to transcribe audio: {e}")
+            raise RuntimeError(f"Failed to transcribe audio: {e}") from e
 
     def save_results(self, result: dict) -> dict:
         """Save transcription results in multiple formats."""
@@ -207,7 +208,7 @@ class VideoTranscriber:
                 "transcription": result["text"].strip()
             }
 
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 -- top-level workflow: report failure as a result, don't raise
             print(f"❌ Error: {e}")
             return {
                 "success": False,
@@ -274,7 +275,7 @@ Examples:
     except KeyboardInterrupt:
         print("\n⏸️  Interrupted by user")
         sys.exit(1)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 -- CLI entry point: print a clean message instead of a raw traceback
         print(f"\n💥 Unexpected error: {e}")
         sys.exit(1)
 

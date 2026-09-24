@@ -12,18 +12,19 @@ Example:
     python video_frame_extractor.py video.mp4 --fps 2 --format png
 """
 
+from __future__ import annotations
+
 import argparse
+import math
 import subprocess
 import sys
-import math
 from pathlib import Path
-from typing import Optional
 
 
 class VideoFrameExtractor:
     """Main class for video frame extraction workflow."""
 
-    def __init__(self, video_path: str, fps: float = 1.0, output_dir: Optional[str] = None,
+    def __init__(self, video_path: str, fps: float = 1.0, output_dir: str | None = None,
                  format: str = "jpg", quality: int = 2, prefix: str = "frame"):
         self.video_path = Path(video_path)
         self.fps = fps
@@ -129,7 +130,7 @@ class VideoFrameExtractor:
                 print(f"📸 Estimated frames: ~{video_info['estimated_frames']}")
                 if video_info['width'] > 0:
                     print(f"📐 Resolution: {video_info['width']}x{video_info['height']}")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 -- info gathering is best-effort; any failure falls back, never blocks extraction
             print(f"⚠️  Could not get video info: {e}")
             video_info = {'estimated_frames': 0}
 
@@ -181,7 +182,7 @@ class VideoFrameExtractor:
             print(f"❌ FFmpeg error: {e.stderr}")
             raise RuntimeError(f"Failed to extract frames: {e}")
 
-    def create_contact_sheet(self, columns: int = 4) -> Optional[str]:
+    def create_contact_sheet(self, columns: int = 4) -> str | None:
         """Create a contact sheet/montage of extracted frames."""
         video_name = self.video_path.stem
         extracted_files = list(self.output_dir.glob(f"{video_name}_{self.prefix}_*.{self.format}"))
@@ -231,7 +232,7 @@ class VideoFrameExtractor:
 
             return result
 
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 -- top-level workflow: report failure as a result, don't raise
             print(f"❌ Error: {e}")
             return {
                 'success': False,
@@ -316,7 +317,7 @@ Examples:
     except KeyboardInterrupt:
         print("\n⏸️  Interrupted by user")
         sys.exit(1)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 -- CLI entry point: print a clean message instead of a raw traceback
         print(f"\n💥 Unexpected error: {e}")
         sys.exit(1)
 

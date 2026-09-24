@@ -15,6 +15,7 @@ def _run_help(script: str) -> subprocess.CompletedProcess:
         [sys.executable, str(ROOT / script), "--help"],
         capture_output=True,
         text=True,
+        check=False,
     )
 
 
