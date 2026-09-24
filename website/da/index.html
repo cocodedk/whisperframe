@@ -23,6 +23,8 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="stylesheet" href="../styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://brand.cocode.dk/v1.css" />
+  <script type="module" src="https://brand.cocode.dk/v1.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,14 +48,15 @@
   </script>
 </head>
 <body>
-  <header>
-    <span class="logo">WhisperFrame</span>
-    <nav>
-      <a href="https://github.com/cocodedk/whisperframe" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="../" class="lang-switch">English</a>
-      <a href="../fa/" class="lang-switch">فارسی</a>
-    </nav>
-  </header>
+  <!-- The cocode.dk family frame. Without JavaScript its children show instead: a way home
+       and the language/GitHub links. It replaces the site's own header (logo + nav). -->
+  <cocode-head project="WhisperFrame" accent="#f59e0b" on-accent="#000000" dark
+                links="GitHub:https://github.com/cocodedk/whisperframe">
+    <a href="https://cocode.dk">cocode.dk</a>
+    <a href="../" hreflang="en">EN</a>
+    <span class="on">DA</span>
+    <a href="../fa/" hreflang="fa">FA</a>
+  </cocode-head>
 
   <div class="hero">
     <h1>WhisperFrame</h1>
@@ -97,8 +100,14 @@ python video_frame_extractor.py --help</code></pre>
     </section>
   </main>
 
+  <!-- Copyright, "skabt af" and cocode.dk now come from cocode-foot below;
+       the Apache-2.0 mention is not an author/copyright/source link, so it stays. -->
   <footer>
-    <p>Apache-2.0 &nbsp;|&nbsp; © 2026 <a href="https://cocode.dk" target="_blank" rel="noreferrer">Cocode</a> &nbsp;|&nbsp; Skabt af <a href="https://linkedin.com/in/babakbandpey" target="_blank" rel="noreferrer">Babak Bandpey</a></p>
+    <p>Apache-2.0</p>
   </footer>
+
+  <cocode-foot repo="cocodedk/whisperframe" dark>
+    <a href="https://cocode.dk">cocode.dk</a>
+  </cocode-foot>
 </body>
 </html>
