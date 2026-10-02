@@ -4,9 +4,9 @@
 
 ## Website
 
-- [English](https://cocodedk.github.io/whisperframe/)
-- [فارسی (Persian)](https://cocodedk.github.io/whisperframe/fa/)
-- [Dansk (Danish)](https://cocodedk.github.io/whisperframe/da/)
+- [English](https://whisperframe.cocode.dk/)
+- [فارسی (Persian)](https://whisperframe.cocode.dk/fa/)
+- [Dansk (Danish)](https://whisperframe.cocode.dk/da/)
 
 ## Download
 
